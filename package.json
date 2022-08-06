@@ -1,0 +1,23 @@
+{
+  "name": "6.-module-evaluation",
+  "version": "1.0.0",
+  "description": "1. Create a repository just with README.md\r 2. clone this repository in the file where I will storage the project.\r 3. Add packet json files with Command promp, using the tool (Git)",
+  "main": "farm.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carloscfgos1980/master-TDD-vegetable-garden.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carloscfgos1980/master-TDD-vegetable-garden/issues"
+  },
+  "homepage": "https://github.com/carloscfgos1980/master-TDD-vegetable-garden#readme",
+  "devDependencies": {
+    "jest": "^28.1.3"
+  }
+}
