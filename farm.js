@@ -1,3 +1,17 @@
+// const corn = {
+//     name: "corn",
+//     yield: 3,
+// };
+// const pumpkin = {
+//     name: "pumpkin",
+//     yield: 4,
+// };
+// const crops = [
+//     { crop: corn, numCrops: 0 },
+//     { crop: pumpkin, numCrops: 2 },
+// ];
+
+
 
 const getYieldForPlant = (plant) => {
     const plantYield = plant.yield
@@ -51,9 +65,38 @@ const getTotalYield = (items) => {
 }
 //getTotalYield({ crops });
 
+const getCostsForCrop = (item) => {
+    price = item.crop.cost;
+    //console.log("Cost of the plant is:", price)
+
+    amount = item.numCrops;
+    //console.log("The number of plants is:", amount)
+
+    cropCost = price * amount
+    console.log("Cost of the crop is:", cropCost)
+
+    return cropCost
+}
+//getCostsForCrop(input);
+
+const getRevenueForCrop = (item) => {
+    price = item.crop.price;
+    //console.log("Price of the plant is:", price)
+    cropYield = getYieldForCrop(item)
+    //console.log("Yield of the plant is:", cropYield)
+
+    revenueCrop = price * cropYield
+    console.log("Revenue of the crop is:", revenueCrop)
+
+    return revenueCrop
+}
+//getRevenueForCrop(input);
+
 
 module.exports = {
     getYieldForPlant,
     getYieldForCrop,
-    getTotalYield
+    getTotalYield,
+    getCostsForCrop,
+    getRevenueForCrop
 };
