@@ -92,11 +92,23 @@ const getRevenueForCrop = (item) => {
 }
 //getRevenueForCrop(input);
 
+const getProfitForCrop = (item) => {
+    const cropRevenue = getRevenueForCrop(item);
+    //console.log("Revenue of the crop is:", cropRevenue)
+    const cropCost = getCostsForCrop(item);
+    //console.log("Cost of the crop is:", cropCost)
+    cropProfit = cropRevenue - cropCost
+    console.log("The profit of the crop is", cropProfit)
+    return cropProfit
+}
+//getProfitForCrop(input);
+
 
 module.exports = {
     getYieldForPlant,
     getYieldForCrop,
     getTotalYield,
     getCostsForCrop,
-    getRevenueForCrop
+    getRevenueForCrop,
+    getProfitForCrop
 };
