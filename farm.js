@@ -129,8 +129,23 @@ const getTotalProfit = (items) => {
 
     return totalProfit
 }
-
 //getTotalProfit({ crops })
+
+const getYieldForPlantEF = (plant, eFactors) => {
+    const lowSun = plant.factor.sun[eFactors.sun];
+    console.log("Constant low sun:", lowSun);
+    const percentLowSun = (100 + lowSun) / 100
+    console.log("Percent of low sun:", percentLowSun);
+
+    const plantYield = plant.yield
+    console.log("Yield of the plant is:", plantYield)
+
+    YieldEF = percentLowSun * plantYield
+    console.log("Yield of the plant with low sun:", YieldEF);
+
+}
+//getYieldForPlantEF(corn, environmentFactors);
+
 
 
 module.exports = {
@@ -140,5 +155,6 @@ module.exports = {
     getCostsForCrop,
     getRevenueForCrop,
     getProfitForCrop,
-    getTotalProfit
+    getTotalProfit,
+    getYieldForPlantEF
 };
