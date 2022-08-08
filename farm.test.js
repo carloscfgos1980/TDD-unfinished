@@ -3,7 +3,8 @@ const { getYieldForPlant,
     getTotalYield,
     getCostsForCrop,
     getRevenueForCrop,
-    getProfitForCrop
+    getProfitForCrop,
+    getTotalProfit
 } = require("./farm");
 
 
@@ -106,5 +107,34 @@ describe("getProfitForCrop", () => {
             numCrops: 50,
         };
         expect(getProfitForCrop(input)).toBe(350);
+    });
+});
+
+describe("getTotalProfit", () => {
+    test("Calculate total profit of Banana, Corn and Pumpkin", () => {
+        const banana = {
+            name: "banana",
+            yield: 2,
+            cost: 3,
+            price: 5,
+        };
+        const corn = {
+            name: "corn",
+            yield: 3,
+            cost: 2,
+            price: 3,
+        };
+        const pumpkin = {
+            name: "pumpkin",
+            yield: 4,
+            cost: 1,
+            price: 1.5,
+        };
+        const crops = [
+            { crop: banana, numCrops: 20 },
+            { crop: corn, numCrops: 50 },
+            { crop: pumpkin, numCrops: 20 },
+        ];
+        expect(getTotalProfit({ crops })).toBe(590);
     });
 });
