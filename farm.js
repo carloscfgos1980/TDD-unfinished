@@ -2,68 +2,97 @@
 //     name: "corn",
 //     yield: 3,
 // };
-// const pumpkin = {
-//     name: "pumpkin",
-//     yield: 4,
-// };
-// const crops = [
-//     { crop: corn, numCrops: 0 },
-//     { crop: pumpkin, numCrops: 2 },
-// ];
+// const crops = [{ crop: corn, numCrops: 0 }];
 
+const corn = {
+    name: "corn",
+    yield: 3,
+};
+const pumpkin = {
+    name: "pumpkin",
+    yield: 4,
+};
+const crops = [
+    { crop: corn, numCrops: 5 },
+    { crop: pumpkin, numCrops: 2 },
+]
 
 
 const getYieldForPlant = (plant) => {
+    console.log("yield for plant", plant)
     const plantYield = plant.yield
-    //console.log("Yield of the plant is:", plantYield)
+    console.log("Yield of the plant is:", plantYield)
     return plantYield
 }
 //getYieldForPlant(corn);
 
 const getYieldForCrop = (item) => {
-    //console.log(item)
+    console.log("Item:", item)
+    yieldCrop = + '';
+    item.forEach(elem => {
+        plant = elem.crop
+        console.log("plant is", plant)
+        plantYield = getYieldForPlant(plant)
+        cropNums = elem.numCrops
+        console.log("The amount of plants is:", cropNums)
+        yieldCrop = plantYield * cropNums
+        console.log("Yield for the crop is:", yieldCrop)
+    })
 
-    const plant = item.crop
-    //console.log("Object plant is:", plant)
 
-    const plantYield = getYieldForPlant(plant)
-    //console.log("Yield for plant is:", plantYield)
+    // const plant = item.crop
+    // console.log("Object plant is:", plant)
 
-    const cropNums = item.numCrops
+
+    // console.log("Yield for plant is:", plantYield)
+
+    //const cropNums = item.numCrops
     //console.log("The amount of plants is:", cropNums)
 
-    yieldCrop = plantYield * cropNums
+    // yieldCrop = plantYield * cropNums
     console.log("Yield for the crop is:", yieldCrop)
 
-    return yieldCrop
+    return yieldCrop;
 }
 //getYieldForCrop(input);
 
 const getTotalYield = (items) => {
-    //console.log(items)
-    const cornCrop = items.crops[0];
+    console.log("Items:", [items])
+    input = '';
+    result = '';
+    [items].forEach(el => {
+        input = el.crops
+        console.log("Plant:", input)
+
+
+    })
+
+    // result = [getYieldForCrop(input)]
+    //console.log("Yield Crop in Total", result)
+    //console.log("Result is:", result)
+    //const cornCrop = items.crops[0];
     //console.log("First crop is:", cornCrop)
 
-    const pumpkinCrop = items.crops[1];
+    //const pumpkinCrop = items.crops[1];
     //console.log("Second crop is:", pumpkinCrop)
 
-    const yieldCorn = getYieldForCrop(cornCrop);
+    //const yieldCorn = getYieldForCrop(cornCrop);
     //console.log("First Yield crop is:", yieldCorn)
 
-    const yieldPumpkin = getYieldForCrop(pumpkinCrop);
+    //const yieldPumpkin = getYieldForCrop(pumpkinCrop);
     //console.log("Second Yield crop is:", yieldPumpkin)
 
-    result = [yieldCorn, yieldPumpkin]
+    //result = [yieldCorn, yieldPumpkin]
 
-    const totalYield = result.reduce((total, number) => {
-        return total + number
-    }, 0)
-    console.log("Sums of yields is:", totalYield);
+    // const totalYield = result.reduce((total, number) => {
+    //     return total + number
+    // }, 0)
+    // console.log("Sums of yields is:", totalYield);
 
-    return totalYield
+    // return totalYield
 
 }
-//getTotalYield({ crops });
+getTotalYield({ crops });
 
 const getCostsForCrop = (item) => {
     price = item.crop.cost;
@@ -109,7 +138,7 @@ const getTotalProfit = (items) => {
     //console.log("First crop is:", cropBanana)
 
     const cropCorn = items.crops[1];
-    //console.log("Second crop is:", cropCorn)
+    console.log("Second crop is:", cropCorn)
 
     const cropPumkin = items.crops[2];
     //console.log("Third crop is:", cropPumkin)
@@ -148,13 +177,13 @@ const getYieldForPlantEF = (plant, eFactors) => {
 
 
 
-module.exports = {
-    getYieldForPlant,
-    getYieldForCrop,
-    getTotalYield,
-    getCostsForCrop,
-    getRevenueForCrop,
-    getProfitForCrop,
-    getTotalProfit,
-    getYieldForPlantEF
-};
+// module.exports = {
+//     getYieldForPlant,
+//     getYieldForCrop,
+//     getTotalYield,
+//     getCostsForCrop,
+//     getRevenueForCrop,
+//     getProfitForCrop,
+//     getTotalProfit,
+//     getYieldForPlantEF
+// };
