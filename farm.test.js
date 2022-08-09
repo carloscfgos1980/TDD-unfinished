@@ -157,6 +157,6 @@ describe("getYieldForPlantEF", () => {
         const environmentFactors = {
             sun: "low",
         };
-        expect(getYieldForPlantEF(corn)).toBe(15);
+        expect(getYieldForPlantEF(corn, environmentFactors)).toBe(15);
     });
 });
