@@ -1,4 +1,18 @@
+// const corn = {
+//     name: "corn",
+//     yield: 30,
+//     factor: {
+//         sun: {
+//             low: -50,
+//             medium: 0,
+//             high: 50,
+//         },
+//     },
+// };
 
+// const environmentFactors = {
+//     sun: "low",
+// };
 
 const getYieldForPlant = (plant) => {
     console.log("yield for plant", plant)
@@ -10,13 +24,13 @@ const getYieldForPlant = (plant) => {
 
 const getYieldForCrop = (item) => {
     plant = item.crop
-    console.log("Object plant is:", plant)
+    //console.log("Object plant is:", plant)
 
     plantYield = getYieldForPlant(plant)
-    console.log("Yield for plant is:", plantYield)
+    //console.log("Yield for plant is:", plantYield)
 
     const cropNums = item.numCrops
-    console.log("The amount of plants is:", cropNums)
+    //console.log("The amount of plants is:", cropNums)
 
     yieldCrop = plantYield * cropNums
     console.log("Yield for the crop is:", yieldCrop)
@@ -26,15 +40,14 @@ const getYieldForCrop = (item) => {
 //getYieldForCrop(input);
 
 const getTotalYield = (items) => {
-    console.log("Items:", items.crops)
+    //console.log("Items:", items.crops)
     const cropsYield = items.crops.map((elem) => {
         outcome = getYieldForCrop(elem)
 
-        console.log("Outcome Yield:", outcome)
+        //console.log("Outcome Yield:", outcome)
         return outcome
     });
     totalYield = cropsYield.reduce((acc, cur) => acc + cur);
-
 
     console.log("Total Yield is", totalYield)
     return totalYield
@@ -86,7 +99,7 @@ const getTotalProfit = (items) => {
     const cropsYield = items.crops.map((elem) => {
         outcome = getProfitForCrop(elem)
 
-        console.log("Outcome Profit:", outcome)
+        // console.log("Outcome Profit:", outcome)
         return outcome
     });
     totalProfit = cropsYield.reduce((acc, cur) => acc + cur);
@@ -97,7 +110,9 @@ const getTotalProfit = (items) => {
 //getTotalProfit({ crops })
 
 const getYieldForPlantEF = (plant, eFactors) => {
-    const lowSun = plant.factor.sun[eFactors.sun];
+    const factorSun = eFactors.sun
+    console.log("Factor sun:", factorSun)
+    const lowSun = plant.factor.sun[factorSun];
     console.log("Constant low sun:", lowSun);
     const percentLowSun = (100 + lowSun) / 100
     console.log("Percent of low sun:", percentLowSun);
@@ -107,6 +122,7 @@ const getYieldForPlantEF = (plant, eFactors) => {
 
     YieldEF = percentLowSun * plantYield
     console.log("Yield of the plant with low sun:", YieldEF);
+    return YieldEF
 
 }
 //getYieldForPlantEF(corn, environmentFactors);
