@@ -6,7 +6,8 @@ const { getYieldForPlant,
     getProfitForCrop,
     getTotalProfit,
     getYieldForPlantEF,
-    getYieldForPlantEFs
+    getYieldForPlantEFs,
+    getTotalYieldEFs
 } = require("./farm");
 
 
@@ -186,5 +187,68 @@ describe("getYieldForPlantEFs", () => {
     };
     test("Get yield for plant with several environment factors", () => {
         expect(getYieldForPlantEFs(avocado, environmentFactors)).toBe(36);
+    });
+});
+
+describe("getTotalYieldEFs", () => {
+    test("Get yield with several environmental factors", () => {
+        const avocado = {
+            name: "avocado",
+            yield: 30,
+            factor: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: 0,
+                    medium: -20,
+                    high: -40,
+                },
+            },
+        };
+        const banana = {
+            name: "banana",
+            yield: 10,
+            factor: {
+                sun: {
+                    low: -20,
+                    medium: 0,
+                    high: 20,
+                },
+                wind: {
+                    low: 0,
+                    medium: -10,
+                    high: -20,
+                },
+            },
+        };
+        const corn = {
+            name: "corn",
+            yield: 4,
+            factor: {
+                sun: {
+                    low: -20,
+                    medium: 0,
+                    high: 20,
+                },
+                wind: {
+                    low: 0,
+                    medium: 0,
+                    high: 0,
+                },
+            },
+        };
+        const crops = [
+            { crop: avocado, numCrops: 20 },
+            { crop: banana, numCrops: 50 },
+            { crop: corn, numCrops: 20 },
+        ];
+        const environmentFactors = {
+            sun: "high",
+            wind: "medium",
+        };
+        expect(getTotalYieldEFs({ crops }, environmentFactors)).toBe("51.60");
     });
 });

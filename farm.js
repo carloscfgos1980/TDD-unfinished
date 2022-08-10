@@ -113,6 +113,8 @@ const getYieldForPlantEF = (plant, eFactors) => {
 //getYieldForPlantEF(corn, environmentFactors);
 
 const getYieldForPlantEFs = (plant, eFactors) => {
+    //console.log("plant:", plant)
+    //console.log("eFactors:", eFactors)
     const factorSun = eFactors.sun
     const factorWind = eFactors.wind
     const HighSun = plant.factor.sun[factorSun];
@@ -135,6 +137,26 @@ const getYieldForPlantEFs = (plant, eFactors) => {
 }
 //getYieldForPlantEFs(avocado, environmentFactors);
 
+const getTotalYieldEFs = (items, eFactors) => {
+    //console.log(items)
+
+    const cropsYield = items.crops.map((elem) => {
+        console.log(elem.crop)
+        crop = elem.crop
+        outcome = getYieldForPlantEFs(crop, eFactors)
+
+        // console.log("Outcome Profit:", outcome)
+        return outcome
+    });
+    totalYield = cropsYield.reduce((acc, cur) => acc + cur);
+    total = totalYield.toFixed(2);
+
+    console.log("Total Pfofit is", total)
+    return total
+}
+
+//getTotalYieldEFs({ crops }, environmentFactors);
+
 module.exports = {
     getYieldForPlant,
     getYieldForCrop,
@@ -144,5 +166,6 @@ module.exports = {
     getProfitForCrop,
     getTotalProfit,
     getYieldForPlantEF,
-    getYieldForPlantEFs
+    getYieldForPlantEFs,
+    getTotalYieldEFs
 };
