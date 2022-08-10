@@ -5,7 +5,8 @@ const { getYieldForPlant,
     getRevenueForCrop,
     getProfitForCrop,
     getTotalProfit,
-    getYieldForPlantEF
+    getYieldForPlantEF,
+    getYieldForPlantEFs
 } = require("./farm");
 
 
@@ -158,5 +159,32 @@ describe("getYieldForPlantEF", () => {
             sun: "low",
         };
         expect(getYieldForPlantEF(corn, environmentFactors)).toBe(15);
+    });
+});
+
+describe("getYieldForPlantEFs", () => {
+    const avocado = {
+        name: "avocado",
+        yield: 30,
+        factor: {
+            sun: {
+                low: -50,
+                medium: 0,
+                high: 50,
+            },
+            wind: {
+                low: 0,
+                medium: -20,
+                high: -40,
+            },
+        },
+    };
+
+    const environmentFactors = {
+        sun: "high",
+        wind: "medium",
+    };
+    test("Get yield for plant with several environment factors", () => {
+        expect(getYieldForPlantEFs(avocado, environmentFactors)).toBe(36);
     });
 });

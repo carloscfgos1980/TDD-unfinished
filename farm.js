@@ -1,18 +1,3 @@
-// const corn = {
-//     name: "corn",
-//     yield: 30,
-//     factor: {
-//         sun: {
-//             low: -50,
-//             medium: 0,
-//             high: 50,
-//         },
-//     },
-// };
-
-// const environmentFactors = {
-//     sun: "low",
-// };
 
 const getYieldForPlant = (plant) => {
     console.log("yield for plant", plant)
@@ -127,7 +112,28 @@ const getYieldForPlantEF = (plant, eFactors) => {
 }
 //getYieldForPlantEF(corn, environmentFactors);
 
+const getYieldForPlantEFs = (plant, eFactors) => {
+    const factorSun = eFactors.sun
+    const factorWind = eFactors.wind
+    const HighSun = plant.factor.sun[factorSun];
+    //console.log("Constant high sun:", HighSun);
+    const percentHighSun = (100 + HighSun) / 100
+    //console.log("Percent of high sun:", percentHighSun);
 
+    const mediumWind = plant.factor.wind[factorWind];
+    //console.log("Constant medium wind", mediumWind);
+    const percentMediumWind = (100 + mediumWind) / 100
+    //console.log("Percent of medium wind:", percentMediumWind);
+
+    const plantYield = plant.yield
+    //console.log("Yield of the plant is:", plantYield)
+
+    YieldEFs = plantYield * percentHighSun * percentMediumWind
+    console.log("Yield of the plant with low sun and medium wind:", YieldEFs);
+
+    return YieldEFs
+}
+//getYieldForPlantEFs(avocado, environmentFactors);
 
 module.exports = {
     getYieldForPlant,
@@ -137,5 +143,6 @@ module.exports = {
     getRevenueForCrop,
     getProfitForCrop,
     getTotalProfit,
-    getYieldForPlantEF
+    getYieldForPlantEF,
+    getYieldForPlantEFs
 };
